@@ -1,0 +1,125 @@
+<app-navigationbar></app-navigationbar>
+<div id="register-title"></div>
+<div class="container">
+  <div class="register-wrapper">
+    <h2>Register</h2>
+    <form>
+      <table>
+        <tr>
+          <td>Email:</td>
+          <td>
+              <input 
+                type="email" 
+                name="email"
+                required
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                minlength = '3'
+                maxlength = '20' 
+                [(ngModel)]="newUser.email"
+                #email = "ngModel" 
+                autocomplete="email"
+              >
+            </td>
+        </tr>
+        <tr *ngIf="email.errors && email.touched">
+            <td></td>
+            <td>
+              <p class = "error" *ngIf="email.errors.required">*An email is required</p>
+              <p class = "error" *ngIf="email.errors.minlength">*Min length of an email is 3 characters</p>
+              <p class = "error" *ngIf="email.errors.pattern">*Email is invalid</p>
+            </td>
+          </tr>
+        <tr>
+          <td>First Name:</td>
+          <td>
+              <input 
+                type="text" 
+                name="first_name"
+                required
+                minlength = '3'
+                maxlength = '20' 
+                [(ngModel)]="newUser.firstName"
+                #first_name = "ngModel" 
+                autocomplete="first_name"
+              >
+            </td>
+        </tr>
+        <tr *ngIf="first_name.errors && first_name.touched">
+            <td></td>
+            <td>
+              <p class = "error" *ngIf="first_name.errors.required">*An first name is required</p>
+              <p class = "error" *ngIf="first_name.errors.minlength">*Min length of an first name is 3 characters</p>
+            </td>
+          </tr>
+        <tr>
+          <td>Last Name:</td>
+          <td>
+              <input 
+                type="text" 
+                name="last_name"
+                required
+                minlength = '3'
+                maxlength = '20'  
+                [(ngModel)]="newUser.lastName" 
+                #last_name = "ngModel"
+                autocomplete="last_name"
+              >
+            </td>
+        </tr>
+        <tr *ngIf="last_name.errors && last_name.touched">
+            <td></td>
+            <td>
+              <p class = "error" *ngIf="last_name.errors.required">*An last name is required</p>
+              <p class = "error" *ngIf="last_name.errors.minlength">*Min length of an last name is 3 characters</p>
+            </td>
+          </tr>
+        <tr>
+          <td>Password:</td>
+          <td>
+              <input 
+                type="password" 
+                name="password" 
+                required
+                minlength = '3'
+                maxlength = '20'  
+                [(ngModel)]="newUser.password" 
+                #password = "ngModel"
+                autocomplete="new-password"
+              >
+            </td>
+        </tr>
+        <tr>
+          <p>*Password must contain at least 8 characters</p>
+        </tr>
+        <tr>
+          <td>Confirm Password:</td>
+          <td>
+              <input 
+                type="password" 
+                name="confirm_pw"
+                required
+                minlength = '3'
+                maxlength = '20'   
+                [(ngModel)]="newUser.passwordConfirmation"
+                #confirm_pw = "ngModel"
+                autocomplete="new-password"
+              >
+            </td>
+        </tr>
+        <tr>
+          <td><p>Already have an account?<a [routerLink]="['/login']"> Sign in here</a></p></td>
+          <td>
+            <button 
+              type="submit" 
+              class="btn btn-primary" 
+              (click)="register()" 
+              [disabled] = "email.invalid || first_name.invalid || last_name.invalid"
+              >
+              Register
+            </button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>

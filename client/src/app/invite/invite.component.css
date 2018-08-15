@@ -1,0 +1,64 @@
+.trip-info{
+    display: inline-block;
+}
+.trippeople{
+    height:200px;
+    overflow-y:auto;
+    vertical-align:top;
+}
+.people{
+    margin-left:20px;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+.error{
+    color:red;
+}
+
+.people-wrapper{
+    display:inline-block;
+    width: 100%;
+}
+
+.message-board{
+    display:inline-block;
+    vertical-align:top;
+}
+
+.user-search{
+    padding-bottom:20px;
+}
+#admin{
+    font-style:italic;
+}
+h2{
+    color:#62B4A7;
+    font-size: 22px;
+}
+.friends-wrapper,.trip-info,.message-board{
+    display: inline-block;
+    vertical-align: top;
+    width: 33.3%;
+    min-height: 700px;
+    padding:3%;
+    font-size:12px;
+}
+.message-board{
+    padding-right:0;
+}
+.friends-wrapper{
+    background-color: #fafafa;
+}
+.friends-wrapper h2{
+    color:#68838b;
+}
+#invite-image{
+    height:200px;
+    background: url("../../assets/images/invite.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+button{
+    float:right;
+}

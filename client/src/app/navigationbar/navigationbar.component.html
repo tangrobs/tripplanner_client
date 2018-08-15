@@ -1,0 +1,9 @@
+<div id="main-menu">
+<p><span>TRIP</span> PLANNER</p><nav *ngIf = "!isOnRegOrLogin()">
+    <button [routerLink] = "['/dashboard']">DASHBOARD</button>
+    <button [routerLink] = "['/createtrip']">CREATE TRIP</button>
+    <button *ngIf = "isOnInvitePage()" [routerLink] = "['/trips/plan/',tripId]">TRIP PAGE</button>
+    <button *ngIf = "isOnTripPage()" [routerLink] = "['/trips/plan',tripId,'invite']">INVITE FRIENDS</button>
+    <button (click) = "logout()">LOGOUT</button>
+  </nav>
+</div>
